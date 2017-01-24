@@ -20,14 +20,7 @@ function get_pwd(){
   echo $prompt_short_dir
 }
 
-PACKAGE_VERSION=$(cat package.json \
-  | grep version \
-  | head -1 \
-  | awk -F: '{ print $2 }' \
-  | sed 's/[",]//g' \
-  | tr -d '[[:space:]]')
-
-PROMPT='%{$fg[white]%}$(get_pwd)$(PACKAGE_VERSION) $(git_prompt_info)%{$reset_color%}%{$reset_color%} '
+PROMPT='%{$fg[white]%}$(get_pwd) $(git_prompt_info)%{$reset_color%}%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[cyan]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
